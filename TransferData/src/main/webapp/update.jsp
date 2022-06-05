@@ -45,9 +45,15 @@
 		
 		<p>請上傳.pdf或.txt檔</p>
 		<p style="color:#FF8000;">檔案大小上限5MB，保留5分鐘</p>
+		
+		<form action="uploadhandle.jsp" method="post" enctype="multipart/form-data">
+		
 		<!--<form action='<c:url value="/"/>' method='POST'> 選擇檔案的java檔-->
-			<button style="background-color:#808080"><i class="fi fi-rr-link" style="text-align:center" ></i>　選擇檔案</button>
-		<!--</form> -->
+			<input type="file" name="file" size="50" style="display: none" />
+			<button type="button" onclick="file.click()" style="background-color:#808080"><i class="fi fi-rr-link" style="text-align:center" ></i>　選擇檔案</button>
+			
+		
+		</form> -->
 		
 
 		<div align=right>
@@ -72,8 +78,10 @@
 					<!-- 對話視窗中送出與取消按鈕 -->
 					<div align="center">
 						<div style="display:inline-block">
+						<form action="uploadhandle.jsp" method="post" enctype="multipart/form-data">
 							<!--<form action='<c:url value="/"/>' method='POST'> 送出的java檔-->
-								<button data-toggle="modal" data-target="#myModal" style="background-color:#037dfa"><i class="fi fi-rr-sign-in-alt"></i> 送出</button>
+								<input type="submit" style="display: none" /> <!--  --> 
+								<button type="submit" data-toggle="modal" data-target="#myModal" style="background-color:#037dfa"><i class="fi fi-rr-sign-in-alt"></i> 送出</button>
 							<!--</form>-->
 						</div>
 						<div style="display:inline-block">
