@@ -9,8 +9,8 @@
 
 <%
     File file;
-    int maxFileSize = 5* 1024;
-    int maxMemSize = 5 * 1024;
+    int maxFileSize = 5* 1024 * 1024;
+    int maxMemSize = 5 * 1024 * 1024;
     ServletContext context = pageContext.getServletContext();
     //String filePath = context.getInitParameter("file-upload");
     String filePath = request.getSession().getServletContext().getRealPath("");
@@ -40,7 +40,8 @@
         try {
             // Parse the request to get file items.
             List fileItems = upload.parseRequest(request);
-
+            System.out.println("contentType => " + fileItems);
+            
             // Process the uploaded file items
             Iterator i = fileItems.iterator();
 
