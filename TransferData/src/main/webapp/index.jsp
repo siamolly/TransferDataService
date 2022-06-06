@@ -49,7 +49,7 @@
 		<form action="uploadhandle.jsp" method="post" enctype="multipart/form-data">
 		
 		<!--<form action='<c:url value="/"/>' method='POST'> 選擇檔案的java檔-->
-			<input type="afile" name="afile" size="50" style="display: none" />
+			<input type="file" name="afile" size="50" style="display: none" />
 			<button type="button" onclick="afile.click()" style="background-color:#808080"><i class="fi fi-rr-link" style="text-align:center" ></i>　選擇檔案</button>
 			
 		
