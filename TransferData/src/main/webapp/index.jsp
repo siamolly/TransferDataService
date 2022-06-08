@@ -47,11 +47,12 @@
 		
     
     <form action="uploadhandle.jsp" method="post" enctype="multipart/form-data">
-        <input type="file" name="file" size="50" style="display: none" />
+        <input type="file" name="file" size="50" onchange="change()" id="file" style="display: none" />
         <button type="button" onclick="file.click()" style="background-color:#808080">
         	<i class="fi fi-rr-link" style="text-align:center" ></i>　
         	選擇檔案
         </button>
+        <span id="fileName"></span>
     
         
         <div align=right>
@@ -94,6 +95,15 @@
 		
         
     </form>
+    
+    
+    <!-- 顯示檔名 -->
+    <script>
+            function change() {
+                $("#fileName").text($("#file").val());
+            }
+   </script>
+   
     
 </div>
 </body>
