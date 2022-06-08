@@ -9,13 +9,16 @@
 
 <%
     File file;
-    int maxFileSize = 5* 1024 * 1024;
+    
+	// MB
+	int maxFileSize = 5* 1024 * 1024;
     int maxMemSize = 5 * 1024 * 1024;
+    
     ServletContext context = pageContext.getServletContext();
-    //String filePath = context.getInitParameter("file-upload");
-    String filePath = request.getSession().getServletContext().getRealPath("");
-    //String filePath = request.getContextPath(); 
+    String filePath = "C:\\Users\\Modern 14\\Desktop\\HW\\TransferDataService\\TransferData\\build\\classes\\File\\";
     System.out.println("filePath => " + filePath);
+    
+    
     // Verify the content type
     String contentType = request.getContentType();
 
@@ -29,7 +32,7 @@
         factory.setSizeThreshold(maxMemSize);
 
         // Location to save data that is larger than maxMemSize.
-        factory.setRepository(new File("C:\\Users\\Modern 14\\Desktop\\HW\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\TransferData\\DataStored"));
+        factory.setRepository(new File(""));
 
         // Create a new file upload handler
         ServletFileUpload upload = new ServletFileUpload(factory);
@@ -66,8 +69,13 @@
                     } else {
                         file = new File(filePath + fileName.substring(fileName.lastIndexOf("\\") + 1));
                     }
-                    fi.write(file);
-                    out.println("Uploaded Filename: " + filePath + fileName + "<br>");
+                    if (fileName.contains(".txt") == true  || fileName.contains(".pdf") == true){
+	                    fi.write(file);
+	                    out.println("Uploaded Filename: " + filePath + fileName + "<br>");
+                    }else{
+                    	out.println("File format error" + "<br>");
+                    }
+                    
                 }
             }
             out.println("</body>");
