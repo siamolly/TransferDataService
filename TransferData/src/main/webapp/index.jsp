@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<!DOCTYPE HTML>
 <html>
 <head>
 	<title>檔案傳輸服務</title>
@@ -30,7 +30,21 @@
 				
 		div{
 			padding:10px;
+			border-radius:6px;
 		}
+		
+		.icon-tool{
+			width:300px;
+			padding:0px;
+			align:right;
+			display:inline-block;
+			visibility:hidden
+		}
+		p{
+			align:right;
+			display:inline-block;
+		}
+		
 		
 	</style>
 </head>
@@ -47,12 +61,24 @@
 		
     
     <form action="uploadhandle.jsp" method="post" enctype="multipart/form-data">
+    	
         <input type="file" name="file" size="50" onchange="change()" id="file" style="display: none" />
         <button type="button" onclick="file.click()" style="background-color:#808080">
         	<i class="fi fi-rr-link" style="text-align:center" ></i>　
         	選擇檔案
         </button>
-        <span id="fileName"></span>
+		<!-- 顯示檔名和下載刪除按鈕 -->
+        <div id="ch" style="display:inline-block">
+        	<span id="fileName"></span>
+        	<div align="right" class="icon-tool"  id="tool">
+        		<p>
+        			<i class="fi fi-rr-download"></i>
+        		</p>
+        		<p>
+        			<i class="fi fi-rr-cross-circle"></i>
+        		</p>
+        	</div>
+        </div>
     
         
         <div align=right>
@@ -100,6 +126,9 @@
     <!-- 顯示檔名 -->
     <script>
             function change() {
+            	document.getElementById("ch").style.backgroundColor="#F5F5F5";
+            	document.getElementById("ch").style.border="3px #696969 solid";
+            	document.getElementById("tool").style.visibility="visible";
                 $("#fileName").text($("#file").val());
             }
    </script>
