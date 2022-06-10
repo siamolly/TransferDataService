@@ -132,6 +132,13 @@
             }
    </script>
    
+   <form action="listName.jsp" method="get" enctype="multipart/form-data">
+    	
+        <button type="submit" style="background-color:#808080">
+        	<i class="fi fi-rr-link" style="text-align:center" ></i>　
+        	查看可下載的檔案
+        </button>
+   </form>
     
 </div>
 </body>

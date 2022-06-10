@@ -12,7 +12,8 @@
 <%
     File file;
 	ServletContext context = pageContext.getServletContext();
-	String filePath = "C:\\Users\\asus\\Desktop\\HW\\";
+	String filePath = "C:\\Users\\Modern 14\\Desktop\\HW\\TransferDataService\\TransferData\\src\\main\\webapp\\File\\";
+	// String filePath = "C:\\Users\\asus\\Desktop\\HW\\";
 	// MB
 	int maxFileSize = 5* 1024 * 1024;
     int maxMemSize = 5 * 1024 * 1024;
