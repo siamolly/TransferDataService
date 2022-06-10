@@ -1,24 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.io.*,java.util.*, javax.servlet.*"%>
+<%@ page import="java.io.*"%>
+<%@ page import=" java.util.*, javax.servlet.*"%>
 <%@ page import="javax.servlet.http.*"%>
 <%@ page import="org.apache.commons.fileupload.*"%>
 <%@ page import="org.apache.commons.fileupload.disk.*"%>
 <%@ page import="org.apache.commons.fileupload.servlet.*"%>
 <%@ page import="org.apache.commons.io.output.*"%>
 
+
 <%
     File file;
-    
+	ServletContext context = pageContext.getServletContext();
+	String filePath = "C:\\Users\\asus\\Desktop\\HW\\";
 	// MB
 	int maxFileSize = 5* 1024 * 1024;
     int maxMemSize = 5 * 1024 * 1024;
-    
-    ServletContext context = pageContext.getServletContext();
-    String filePath = "C:\\Users\\Modern 14\\Desktop\\HW\\TransferDataService\\TransferData\\build\\classes\\File\\";
-    System.out.println("filePath => " + filePath);
-    
-    
+   
+    System.out.println("filePath => " +filePath);
+
     // Verify the content type
     String contentType = request.getContentType();
 
@@ -71,9 +71,13 @@
                     }
                     if (fileName.contains(".txt") == true  || fileName.contains(".pdf") == true){
 	                    fi.write(file);
-	                    out.println("Uploaded Filename: " + filePath + fileName + "<br>");
+	                    request.setAttribute("message", fileName +"  Upload has been done successfully!");
+	                    getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+	                    
                     }else{
-                    	out.println("File format error" + "<br>");
+                    	request.setAttribute("message", "File format error");
+	                    getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+	                    
                     }
                     
                 }

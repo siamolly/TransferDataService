@@ -8,6 +8,7 @@
 	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+	<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-straight/css/uicons-bold-straight.css'>
 	<style>
 		*{
 			font-weight: bold;
@@ -40,7 +41,9 @@
 			display:inline-block;
 			visibility:hidden
 		}
-		p{
+		a:hover{
+			text-decoration:none;
+			color:red;
 			align:right;
 			display:inline-block;
 		}
@@ -50,9 +53,6 @@
 </head>
 
 <body bgcolor='white'>
-
-<!-- ${pageContext.request.contextPath}/AddLeague -->
-<!-- <c:url value="/AddLeague"/> -->
 
 <div style="width:900px; margin:10px; border:3px solid;">
 
@@ -67,19 +67,17 @@
         	<i class="fi fi-rr-link" style="text-align:center" ></i>　
         	選擇檔案
         </button>
-		<!-- 顯示檔名和下載刪除按鈕 -->
         <div id="ch" style="display:inline-block">
         	<span id="fileName"></span>
         	<div align="right" class="icon-tool"  id="tool">
-        		<p>
-        			<i class="fi fi-rr-download"></i>
-        		</p>
-        		<p>
-        			<i class="fi fi-rr-cross-circle"></i>
-        		</p>
+        		<a>
+        			<i class="fi fi-bs-download"></i>
+        		</a>
+        		<a>
+        			<i class="fi fi-bs-cross-circle"></i>
+        		</a>
         	</div>
         </div>
-    
         
         <div align=right>
 			<div style="display:inline-block">
@@ -121,6 +119,7 @@
 		
         
     </form>
+    <h1>${requestScope.message}</h1>
     
     
     <!-- 顯示檔名 -->
