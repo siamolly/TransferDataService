@@ -12,12 +12,16 @@
 	<style>
 		*{
 			font-weight: bold;
-			font-size:20px;
 		}
+		html { height: 100%; } 
+		body{
+			 background-size:100% 100%
+		}
+		
 		button{
+			font-size:30px;
 			border:0px;
-			border-radius: 6px;
-			color:white;
+			border-radius: 30px;
     		vertical-align: middle;
     		padding:5px;
     		padding-left:30px;
@@ -34,62 +38,31 @@
 			border-radius:6px;
 		}
 		
-		.icon-tool{
-			width:300px;
-			padding:0px;
-			align:right;
-			display:inline-block;
-			visibility:hidden
-		}
-		a:hover{
-			text-decoration:none;
-			color:red;
-			align:right;
-			display:inline-block;
-		}
-		
 		
 	</style>
 </head>
 
-<body bgcolor='white'>
+<body  background="https://i.imgur.com/gJ7TQGy.png">
 
-<div style="width:900px; margin:10px; border:3px solid;">
+<div align="center" style="margin:50px;">
 
-	<p>請上傳.pdf或.txt檔</p>
-	<p style="color:#FF8000;">檔案大小上限5MB，保留5分鐘</p>
+	<p style="margin-top:30px;font-size:100px">檔案傳輸服務</p>
+	<p style="font-size:30px">可上傳.pdf或.txt類型的檔案。大小上限5MB</p>
 		
     
     <form action="uploadhandle.jsp" method="post" enctype="multipart/form-data">
     	
-        <input type="file" name="file" size="50" onchange="change()" id="file" style="display: none" />
-        <button type="button" onclick="file.click()" style="background-color:#808080">
-        	<i class="fi fi-rr-link" style="text-align:center" ></i>　
-        	選擇檔案
+        <input type="file" name="file" size="50" onchange="change()" id="file" align="center" style="display: none" />
+        <button  type="button" onclick="file.click()" style="margin:30px; background-color:#74A4FF">
+        	<i class="fi fi-bs-link" style="text-align:center" ></i> 選擇檔案
         </button>
-        <div id="ch" style="display:inline-block">
-        	<span id="fileName"></span>
-        	<div align="right" class="icon-tool"  id="tool">
-        		<a>
-        			<i class="fi fi-bs-download"></i>
-        		</a>
-        		<a>
-        			<i class="fi fi-bs-cross-circle"></i>
-        		</a>
-        	</div>
+        <div align="center" style="height:170px;">
+        	<span id="fileName"  style="font-size:30px" ></span>
+        	<p style="font-size:30px" >${requestScope.message}</p>
+        	
         </div>
         
-        <div align=right>
-			<div style="display:inline-block">
-				<button  type="button" data-toggle="modal" data-target="#myModal" style="background-color:#037dfa"><i class="fi fi-rr-sign-in-alt"></i>  送出</button>
-			</div>
-			<div style="display:inline-block">
-			
-				<!-- 取消送出的java檔-->
-					<button  type="button" style="background-color:#565656"><i class="fi fi-rr-cross-circle" ></i>  取消</button>
-				
-			</div>
-		</div>
+       
 		
 		<!-- Modal對話視窗 -->
 		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -104,12 +77,16 @@
 						<div style="display:inline-block">
 						
 							<!--<form action='<c:url value="/"/>' method='POST'> 送出的java檔-->
-								<button type="submit" name="afile" data-toggle="modal" data-target="#myModal" style="background-color:#037dfa"><i class="fi fi-rr-sign-in-alt"></i> 送出</button>
+								<button type="submit" name="afile" data-toggle="modal" data-target="#myModal" style="background-color:#74A4FF">
+								<i class="fi fi-bs-sign-in-alt"></i>
+								送出</button>
 							<!--</form>-->
 						</div>
 						<div style="display:inline-block">
 							<!--<form action='<c:url value="/"/>' method='POST'> 取消送出的java檔-->
-								<button  type="button" data-toggle="modal" data-target="#myModal" style="background-color:#565656"><i class="fi fi-rr-cross-circle"></i>　取消</button>
+								<button  type="button" data-toggle="modal" data-target="#myModal" style="background-color:#FFA9A9">
+								<i class="fi fi-bs-cross-circle"></i>
+								取消</button>
 							<!--</form>-->
 						</div>
 					</div>
@@ -119,26 +96,40 @@
 		
         
     </form>
-    <h1>${requestScope.message}</h1>
+    
     
     
     <!-- 顯示檔名 -->
     <script>
             function change() {
-            	document.getElementById("ch").style.backgroundColor="#F5F5F5";
-            	document.getElementById("ch").style.border="3px #696969 solid";
-            	document.getElementById("tool").style.visibility="visible";
                 $("#fileName").text($("#file").val());
             }
    </script>
-   
+   <div align=right>
+   <div style="display:inline-block">
    <form action="listName.jsp" method="get" enctype="multipart/form-data">
     	
-        <button type="submit" style="background-color:#808080">
-        	<i class="fi fi-rr-link" style="text-align:center" ></i>　
-        	查看可下載的檔案
+        <button type="submit" style="background-color:#74A4FF">
+        	<i class="fi fi-bs-download" style="text-align:center" ></i> 可下載
         </button>
    </form>
+   </div>
+   
+    
+			<div style="display:inline-block">
+				<button  type="button" data-toggle="modal" data-target="#myModal" style="background-color:#74A4FF">
+				<i class="fi fi-bs-sign-in-alt"></i>
+				  送出</button>
+			</div>
+			<div style="display:inline-block">
+			
+				<!-- 取消送出的java檔-->
+					<button  type="button" style="background-color:#FFA9A9">
+					<i class="fi fi-bs-cross-circle" ></i>
+					  取消</button>
+				
+			</div>
+		</div>
     
 </div>
 </body>

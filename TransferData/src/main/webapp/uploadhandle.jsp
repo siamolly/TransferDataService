@@ -12,8 +12,8 @@
 <%
     File file;
 	ServletContext context = pageContext.getServletContext();
-	String filePath = "C:\\Users\\Modern 14\\Desktop\\HW\\TransferDataService\\TransferData\\src\\main\\webapp\\File\\";
-	// String filePath = "C:\\Users\\asus\\Desktop\\HW\\";
+	//String filePath = "C:\\Users\\asus\\Desktop\\HW\\TransferDataService\\TransferData\\src\\main\\webapp\\File\\";
+	 String filePath = "C:\\Users\\asus\\Desktop\\HW\\";
 	// MB
 	int maxFileSize = 5* 1024 * 1024;
     int maxMemSize = 5 * 1024 * 1024;
@@ -40,6 +40,7 @@
 
         // maximum file size to be uploaded.
         upload.setSizeMax(maxFileSize);
+        
 
         try {
             // Parse the request to get file items.
@@ -63,7 +64,7 @@
                     String fileName = fi.getName();
                     boolean isInMemory = fi.isInMemory();
                     long sizeInBytes = fi.getSize();
-
+                   
                     // Write the file
                     if (fileName.lastIndexOf("\\") >= 0) {
                         file = new File(filePath + fileName.substring(fileName.lastIndexOf("\\")));

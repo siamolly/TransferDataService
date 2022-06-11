@@ -11,8 +11,8 @@
 	<body>
 		<%
 		
-			String path="C:\\Users\\Modern 14\\Desktop\\HW\\TransferDataService\\TransferData\\src\\main\\webapp\\File\\";
-			
+			//String path="C:\\Users\\Modern 14\\Desktop\\HW\\TransferDataService\\TransferData\\src\\main\\webapp\\File\\";
+			String path = "C:\\Users\\asus\\Desktop\\HW\\";
 			
 			
 			String filename = request.getParameter("download");
