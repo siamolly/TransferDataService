@@ -68,7 +68,7 @@
 		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
-					<div align="center">
+					<div align="center" style="font-size:30px;">
 						請確認是否送出?
 					</div>
 					
